@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import SpotifyPlayer from './SpotifyPlayer'; 
 import FavoriteSong from './FavoriteSong'; 
 
 export default function Home() {
@@ -82,16 +81,14 @@ export default function Home() {
 
       {/* SECTION 4: SOUNDTRACK (SPOTIFY) */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-4 md:p-8 relative bg-[#050505]">
-        <div className="max-w-6xl w-full">
+        <div className="max-w-2xl w-full text-center">
           <div className="flex items-center gap-3 mb-10 text-[#1DB954] justify-center">
              <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
           </div>
           
-          {/* Grid Layout untuk dua player */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <SpotifyPlayer />
-            <FavoriteSong />
-          </div>
+          {/* Cukup satu player di tengah agar lebih fokus dan anti-error */}
+          <FavoriteSong />
+          
         </div>
       </section>
 
