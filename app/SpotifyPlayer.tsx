@@ -4,23 +4,51 @@ import React from 'react';
 
 export default function SpotifyPlayer() {
   return (
-    <div className="w-full flex justify-center items-center">
-      {/* Container ini menjaga agar playlist kamu terlihat rapi dan punya bayangan estetis */}
-      <div className="relative w-full max-w-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-zinc-800 bg-zinc-900/50">
-        <iframe
-          title="Spotify Playlist"
-          data-testid="embed-iframe"
-          src="https://open.spotify.com/embed/playlist/4lUU5zBQOAOlstXPU0DmlY?utm_source=generator&theme=0"
-          width="100%"
-          height="352"
-          frameBorder="0"
-          // Di React/Next.js, allowFullScreen harus camelCase dan bernilai boolean
-          allowFullScreen={true}
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          // Style harus berupa objek {} bukan string ""
-          style={{ borderRadius: '12px' }}
-        ></iframe>
+    <div className="w-full max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+        
+        {/* KOLOM KIRI: PLAYLIST */}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2 px-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">My Playlist</span>
+          </div>
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/5 border border-zinc-800 bg-zinc-900/50">
+            <iframe
+              title="Spotify Playlist"
+              src="https://open.spotify.com/embed/playlist/4lUU5zBQOAOlstXPU0DmlY?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              style={{ borderRadius: '12px' }}
+            ></iframe>
+          </div>
+        </div>
+
+        {/* KOLOM KANAN: FAVORITE SONG */}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2 px-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Favorite Song</span>
+          </div>
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-green-500/5 border border-zinc-800 bg-zinc-900/50">
+            <iframe
+              title="Favorite Song"
+              src="https://open.spotify.com/embed/track/5WOSNVChcadlsCRiqXE45K?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              style={{ borderRadius: '12px' }}
+            ></iframe>
+          </div>
+        </div>
+
       </div>
     </div>
   );
