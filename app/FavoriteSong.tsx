@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-// Tipe data untuk YouTube API
 declare global {
   interface Window {
     onYouTubeIframeAPIReady: () => void;
@@ -18,73 +17,98 @@ export default function FavoriteSong() {
   const playerRef = useRef<any>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Perbaikan: Gunakan fungsi inisialisasi yang bisa dipanggil kapan saja
+  const initPlayer = () => {
+    if (playerRef.current) return; // Jangan buat player jika sudah ada
+
+    playerRef.current = new window.YT.Player('youtube-player-final', {
+      height: '0',
+      width: '0',
+      videoId: '9btPvZdVRWY',
+      playerVars: { 
+        'autoplay': 0, 
+        'controls': 0, 
+        'modestbranding': 1,
+        'rel': 0,
+        'origin': window.location.origin // Keamanan tambahan untuk Iframe
+      },
+      events: {
+        onReady: (event: any) => {
+          setDuration(event.target.getDuration());
+          event.target.setVolume(volume);
+        },
+        onStateChange: (event: any) => {
+          if (event.data === window.YT.PlayerState.PLAYING) {
+            setIsPlaying(true);
+          } else {
+            setIsPlaying(false);
+          }
+        }
+      }
+    });
+  };
+
   useEffect(() => {
-    // 1. Load YouTube SDK
+    // Jalankan timer jika musik sedang diputar
+    if (isPlaying) {
+      timerRef.current = setInterval(() => {
+        if (playerRef.current && playerRef.current.getCurrentTime) {
+          setCurrentTime(playerRef.current.getCurrentTime());
+        }
+      }, 1000);
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+    }
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying]);
+
+  useEffect(() => {
+    // Sinkronisasi Script YouTube SDK
     if (!window.YT) {
       const tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+      window.onYouTubeIframeAPIReady = initPlayer;
+    } else {
+      initPlayer();
     }
 
-    window.onYouTubeIframeAPIReady = () => {
-      playerRef.current = new window.YT.Player('youtube-player-final', {
-        height: '0',
-        width: '0',
-        videoId: '9btPvZdVRWY', // ID dari link YouTube Hindia
-        playerVars: { 
-          'autoplay': 0, 
-          'controls': 0, 
-          'modestbranding': 1,
-          'rel': 0 
-        },
-        events: {
-          onReady: (event: any) => {
-            setDuration(event.target.getDuration());
-            event.target.setVolume(volume);
-          },
-          onStateChange: (event: any) => {
-            if (event.data === window.YT.PlayerState.PLAYING) {
-              setIsPlaying(true);
-              startTimer();
-            } else {
-              setIsPlaying(false);
-              stopTimer();
-            }
-          }
-        }
-      });
+    return () => {
+      // Cleanup: Hentikan player jika komponen tidak lagi digunakan
+      if (playerRef.current) {
+        playerRef.current.destroy();
+        playerRef.current = null;
+      }
     };
-    return () => stopTimer();
   }, []);
 
-  const startTimer = () => {
-    timerRef.current = setInterval(() => {
-      if (playerRef.current && playerRef.current.getCurrentTime) {
-        setCurrentTime(playerRef.current.getCurrentTime());
-      }
-    }, 1000);
-  };
-
-  const stopTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-  };
-
   const handleTogglePlay = () => {
-    if (isPlaying) playerRef.current.pauseVideo();
-    else playerRef.current.playVideo();
+    if (!playerRef.current) return;
+    if (isPlaying) {
+      playerRef.current.pauseVideo();
+    } else {
+      playerRef.current.playVideo();
+    }
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = Number(e.target.value);
-    playerRef.current.seekTo(time, true);
-    setCurrentTime(time);
+    if (playerRef.current) {
+      playerRef.current.seekTo(time, true);
+      setCurrentTime(time);
+    }
   };
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = Number(e.target.value);
     setVolume(v);
-    playerRef.current.setVolume(v);
+    if (playerRef.current) {
+      playerRef.current.setVolume(v);
+    }
   };
 
   const formatTime = (time: number) => {
@@ -95,21 +119,15 @@ export default function FavoriteSong() {
 
   return (
     <div className="flex flex-col gap-8 w-full max-w-[700px] mx-auto scale-110 md:scale-125 my-20">
-      {/* Label Atas */}
       <div className="flex items-center gap-3 px-6">
         <div className={`w-2.5 h-2.5 rounded-full ${isPlaying ? 'bg-red-500 animate-pulse' : 'bg-zinc-600'}`}></div>
         <span className="text-[12px] uppercase tracking-[0.5em] text-zinc-400 font-black">Favorite Song</span>
       </div>
 
-      {/* Main Container Style iOS */}
       <div className="relative overflow-hidden rounded-[50px] bg-zinc-800/40 border border-zinc-700/50 backdrop-blur-3xl p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        
-        {/* API YouTube Hidden */}
         <div id="youtube-player-final" className="hidden"></div>
 
         <div className="flex flex-col md:flex-row items-center gap-12">
-          
-          {/* Cover Art - music.png */}
           <div className="relative w-56 h-56 md:w-64 md:h-64 flex-shrink-0 shadow-2xl">
             <div className={`absolute -inset-4 bg-white/5 rounded-[45px] blur-2xl transition-opacity duration-1000 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}></div>
             <img 
@@ -119,19 +137,17 @@ export default function FavoriteSong() {
             />
           </div>
 
-          {/* Controls & Info */}
           <div className="flex-1 w-full space-y-8">
             <div className="text-center md:text-left">
-              <h3 className="text-3xl font-black text-white tracking-tighter leading-none">everything u are</h3>
-              <p className="text-zinc-400 text-sm font-bold uppercase tracking-[0.3em] mt-3">Hindia</p>
+              <h3 className="text-3xl font-black text-white tracking-tighter leading-none">Love Anthem</h3>
+              <p className="text-zinc-400 text-sm font-bold uppercase tracking-[0.3em] mt-3">LyoraChay · BrianVal · MW</p>
             </div>
 
-            {/* Progress Bar Sinkron */}
             <div className="space-y-3">
               <input 
                 type="range" 
                 min="0" 
-                max={duration} 
+                max={duration || 100} 
                 value={currentTime} 
                 onChange={handleSeek} 
                 className="w-full h-1.5 bg-zinc-700/50 rounded-full appearance-none cursor-pointer accent-white hover:accent-red-500 transition-all" 
@@ -142,9 +158,8 @@ export default function FavoriteSong() {
               </div>
             </div>
 
-            {/* Playback Buttons */}
             <div className="flex items-center justify-center md:justify-start gap-10">
-              <button className="text-zinc-500 hover:text-white transition-colors">
+              <button className="text-zinc-500 hover:text-white transition-colors active:scale-90">
                 <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
               </button>
 
@@ -159,12 +174,11 @@ export default function FavoriteSong() {
                 )}
               </button>
 
-              <button className="text-zinc-500 hover:text-white transition-colors">
+              <button className="text-zinc-500 hover:text-white transition-colors active:scale-90">
                 <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="m6 18 8.5-6L6 6zM16 6h2v12h-2z"/></svg>
               </button>
             </div>
 
-            {/* Volume iOS Style */}
             <div className="flex items-center gap-4 pt-4 group">
               <svg width="16" height="16" fill="currentColor" className="text-zinc-500 group-hover:text-white" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
               <input 
@@ -177,7 +191,6 @@ export default function FavoriteSong() {
               />
             </div>
           </div>
-
         </div>
       </div>
     </div>
