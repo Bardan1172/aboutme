@@ -7,7 +7,9 @@ export default function Home() {
       
       {/* SECTION 1: HERO */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
           <img 
@@ -16,14 +18,17 @@ export default function Home() {
             className="relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border border-zinc-800 shadow-2xl"
           />
         </div>
+
         <h1 className="mt-8 text-4xl md:text-6xl font-bold tracking-tight text-white">
           Bardan<span className="text-blue-500">.</span>
         </h1>
+        
         <div className="mt-4 flex flex-wrap justify-center gap-2">
           <span className="px-3 py-1 text-xs font-medium bg-zinc-900 border border-zinc-800 rounded-full text-zinc-400">Content Creator</span>
           <span className="px-3 py-1 text-xs font-medium bg-zinc-900 border border-zinc-800 rounded-full text-zinc-400">Web Developer</span>
           <span className="px-3 py-1 text-xs font-medium bg-zinc-900 border border-zinc-800 rounded-full text-zinc-400">Entrepreneur</span>
         </div>
+
         <div className="absolute bottom-10 animate-bounce flex flex-col items-center gap-2 text-zinc-600">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4 4-4-4"/><path d="M12 8v8"/></svg>
         </div>
@@ -31,13 +36,11 @@ export default function Home() {
 
       {/* SECTION 2: IDENTITY */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
-        <div className="max-w-2xl w-full">
-          <div className="flex items-center gap-3 mb-6 text-blue-500 justify-center">
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Identity</h2>
-          </div>
-          <div className="bg-zinc-900/40 border border-zinc-800/50 p-8 rounded-3xl backdrop-blur-sm text-center">
+        <div className="max-w-2xl w-full text-center">
+          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-500 mb-6">Identity</h2>
+          <div className="bg-zinc-900/40 border border-zinc-800/50 p-8 rounded-3xl backdrop-blur-sm">
             <p className="text-lg md:text-xl leading-relaxed text-zinc-300 italic font-light">
-              "Seorang kreator yang bertumbuh di persimpangan kreativitas digital dan solusi teknologi."
+              "Seorang kreator yang bertumbuh di persimpangan kreativitas digital dan solusi teknologi. Fokus saya adalah membangun komunitas yang inklusif serta solusi web yang performan."
             </p>
           </div>
         </div>
@@ -46,9 +49,7 @@ export default function Home() {
       {/* SECTION 3: THE JOURNEY */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 bg-[#030303] overflow-y-auto">
         <div className="max-w-3xl w-full py-10">
-          <div className="flex items-center gap-3 mb-12 text-blue-500 justify-center">
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em]">The Journey</h2>
-          </div>
+          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-blue-500 mb-12 text-center">The Journey</h2>
           <div className="relative border-l border-zinc-800 ml-4 space-y-12">
             {[
               { year: '2023', title: 'Creative Spark', desc: 'YouTube Bardan172 & Lottacraft.' },
@@ -57,26 +58,29 @@ export default function Home() {
               { year: '2026', current: true, title: 'Innovation', desc: 'Selene Shop & Web Dev.' }
             ].map((item, index) => (
               <div key={index} className="relative ml-8 group">
-                <div className={`absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-[#050505] ${item.current ? 'bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]' : 'bg-blue-600'}`}></div>
-                <h3 className={`text-xs font-bold uppercase ${item.current ? 'text-green-500' : 'text-zinc-500'}`}>{item.year} — {item.title}</h3>
-                <p className="mt-1 text-zinc-400 text-sm">{item.desc}</p>
+                <div className={`absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-[#050505] transition-colors ${item.current ? 'bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]' : 'bg-blue-600'}`}></div>
+                <h3 className={`text-xs font-bold uppercase tracking-widest ${item.current ? 'text-green-500' : 'text-zinc-500'}`}>
+                  {item.year} — {item.title}
+                </h3>
+                <p className="mt-1 text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: MY PLAYLIST (PAKAI KODE KAMU) */}
+      {/* SECTION 4: MY PLAYLIST (KODE FIX) */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
         <div className="max-w-2xl w-full">
           <div className="flex items-center gap-3 mb-8 text-[#1DB954] justify-center">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.49 17.306c-.215.353-.674.463-1.023.248-2.824-1.725-6.377-2.112-10.565-1.157-.4.093-.8-.16-.893-.56-.093-.4.16-.8.56-.893 4.582-1.047 8.497-.604 11.673 1.34.35.213.46.673.248 1.022zm1.465-3.267c-.27.44-.844.578-1.284.308-3.232-1.986-8.16-2.563-11.982-1.403-.49.15-1.01-.132-1.16-.623-.15-.49.133-1.01.624-1.16 4.364-1.324 9.79-.675 13.513 1.61.44.27.578.844.308 1.284zm.126-3.41c-3.874-2.3-10.274-2.512-13.99-1.385-.595.18-1.222-.164-1.402-.76-.18-.595.164-1.222.76-1.402 4.266-1.296 11.332-1.037 15.794 1.612.535.317.71 1.006.393 1.54-.316.536-1.005.71-1.54.394z"/></svg>
-             <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.49 17.306c-.215.353-.674.463-1.023.248-2.824-1.725-6.377-2.112-10.565-1.157-.4.093-.8-.16-.893-.56-.093-.4.16-.8.56-.893 4.582-1.047 8.497-.604 11.673 1.34.35.213.46.673.248 1.022zm1.465-3.267c-.27.44-.844.578-1.284.308-3.232-1.986-8.16-2.563-11.982-1.403-.49.15-1.01-.132-1.16-.623-.15-.49.133-1.01.624-1.16 4.364-1.324 9.79-.675 13.513 1.61.44.27.578.844.308 1.284zm.126-3.41c-3.874-2.3-10.274-2.512-13.99-1.385-.595.18-1.222-.164-1.402-.76-.18-.595.164-1.222.76-1.402 4.266-1.296 11.332-1.037 15.794 1.612.535.317.71 1.006.393 1.54-.316.536-1.005.71-1.54.394z"/></svg>
+            <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
           </div>
           
-          <div className="w-full shadow-2xl">
-            {/* INI KODE KAMU YANG SUDAH DISESUAIKAN UNTUK NEXT.JS */}
+          <div className="w-full rounded-[12px] overflow-hidden shadow-2xl border border-zinc-800 bg-black">
+            {/* Menggunakan link HTTPS dan format yang benar */}
             <iframe 
+              title="Spotify Playlist"
               style={{ borderRadius: "12px" }} 
               src="https://open.spotify.com/embed/playlist/64qOqN6NshD8U7iOfi1vGk?utm_source=generator&theme=0" 
               width="100%" 
@@ -100,20 +104,29 @@ export default function Home() {
             <SocialCard href="https://youtube.com/@bardan1172" title="Youtube" color="hover:border-red-600" />
             <SocialCard href="https://www.instagram.com/bardan_1172/" title="Instagram" color="hover:border-pink-500" />
             <SocialCard href="https://trakteer.id/bardan1172/tip" title="Trakteer" color="hover:border-yellow-500" />
-            <SocialCard href="#" title="Shop" color="hover:border-cyan-500" />
+            <SocialCard href="#" title="Selene Shop" color="hover:border-cyan-500" />
           </div>
+          
           <footer className="mt-20">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold">© {new Date().getFullYear()} BARDAN</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold">
+              © {new Date().getFullYear()} BARDAN × NEXTJS
+            </p>
           </footer>
         </div>
       </section>
+
     </main>
   );
 }
 
 function SocialCard({ href, title, color }: { href: string, title: string, color: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={`p-4 bg-zinc-900/30 border border-zinc-800 rounded-2xl transition-all ${color}`}>
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`group p-4 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl transition-all duration-300 hover:bg-zinc-900 ${color}`}
+    >
       <h3 className="text-sm font-bold text-zinc-200">{title}</h3>
     </a>
   );
