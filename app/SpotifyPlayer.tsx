@@ -10,9 +10,10 @@ export default function SpotifyPlayer() {
         <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">My Playlist</span>
       </div>
       <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-zinc-800 bg-zinc-900/50">
+        {/* Gunakan link asli kamu di sini dengan tambahan parameter generator agar stabil */}
         <iframe
           title="Nothing Song Playlist"
-          src="https://open.spotify.com/embed/track/3S897XpYv6pXq6GInuAAnK?utm_source=generator&theme=02"
+          src="https://open.spotify.com/embed/playlist/0XvOclqV8U9tT1U6R9mX3r?utm_source=generator&theme=0"
           width="100%"
           height="352"
           frameBorder="0"
