@@ -9,10 +9,10 @@ export default function FavoriteSong() {
         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
         <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Favorite Song</span>
       </div>
-      <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-green-500/5 border border-zinc-800 bg-zinc-900/50">
+      <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-green-500/10 border border-zinc-800 bg-zinc-900/50">
         <iframe
           title="Favorite Song"
-          src="https://open.spotify.com/embed/track/2SST9BndX78u7iXn9X181p?utm_source=generator&theme=0"
+          src="https://open.spotify.com/embed/track/3T6v9C6u8SshS93OC736Ab?utm_source=generator&theme=0"
           width="100%"
           height="352"
           frameBorder="0"
