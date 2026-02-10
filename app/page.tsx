@@ -7,6 +7,7 @@ export default function Home() {
       
       {/* SECTION 1: HERO */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         
         <div className="relative group">
@@ -78,7 +79,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: SOCIALS */}
+      {/* SECTION 4: SPOTIFY PLAYLIST */}
+      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
+        <div className="max-w-2xl w-full">
+          <div className="flex items-center gap-3 mb-8 text-[#1DB954]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.49 17.306c-.215.353-.674.463-1.023.248-2.824-1.725-6.377-2.112-10.565-1.157-.4.093-.8-.16-.893-.56-.093-.4.16-.8.56-.893 4.582-1.047 8.497-.604 11.673 1.34.35.213.46.673.248 1.022zm1.465-3.267c-.27.44-.844.578-1.284.308-3.232-1.986-8.16-2.563-11.982-1.403-.49.15-1.01-.132-1.16-.623-.15-.49.133-1.01.624-1.16 4.364-1.324 9.79-.675 13.513 1.61.44.27.578.844.308 1.284zm.126-3.41c-3.874-2.3-10.274-2.512-13.99-1.385-.595.18-1.222-.164-1.402-.76-.18-.595.164-1.222.76-1.402 4.266-1.296 11.332-1.037 15.794 1.612.535.317.71 1.006.393 1.54-.316.536-1.005.71-1.54.394z"/></svg>
+            <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack of My Life</h2>
+          </div>
+          <div className="w-full bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
+            <iframe 
+              src="https://open.spotify.com/embed/playlist/64qOqN6NshD8U7iOfi1vGk?utm_source=generator&theme=0" 
+              width="100%" 
+              height="352" 
+              frameBorder="0" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+              className="opacity-90 hover:opacity-100 transition-opacity"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: SOCIALS */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative">
         <div className="max-w-4xl w-full">
           <div className="flex items-center justify-center gap-3 mb-12 text-blue-500">
