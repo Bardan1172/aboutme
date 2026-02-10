@@ -1,4 +1,3 @@
-// components/SpotifyPlayer.tsx
 import React from 'react';
 
 export default function SpotifyPlayer() {
@@ -7,7 +6,7 @@ export default function SpotifyPlayer() {
       <iframe 
         title="Spotify Playlist"
         style={{ borderRadius: "12px" }} 
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1E4v6Z7v6y8X9z?utm_source=generator&theme=0" 
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1E37j9dQZF1E3?utm_source=generator&theme=0" 
         width="100%" 
         height="352" 
         frameBorder="0" 
