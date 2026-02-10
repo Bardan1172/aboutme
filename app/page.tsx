@@ -48,13 +48,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sisi Kanan: Live Video Profile (Ganti foto-profile.jpg ke live.mp4) */}
+          {/* Sisi Kanan: Live Video Profile */}
           <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] flex-shrink-0 order-1 md:order-2 group">
-            {/* Efek Cahaya di belakang video */}
             <div className="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000"></div>
             
             <div className="relative w-full h-full rounded-full border-[1px] border-zinc-800 p-4 md:p-6 bg-zinc-900/20 backdrop-blur-3xl">
-               <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl">
+               <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl bg-zinc-950">
                   <video 
                     autoPlay 
                     loop 
@@ -62,21 +61,19 @@ export default function Home() {
                     playsInline
                     className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2000ms]"
                   >
+                    {/* Path disesuaikan dengan folder public kamu */}
                     <source src="/foto/live.mp4" type="video/mp4" />
-                    Browser kamu tidak mendukung tag video.
+                    <img src="/foto/foto-profile.jpg" alt="fallback" />
                   </video>
                </div>
                
-               {/* Dekorasi Badge "Live" */}
                <div className="absolute top-8 right-8 bg-red-600 text-white text-[8px] font-black px-3 py-1 rounded-full tracking-[0.2em] animate-pulse shadow-lg shadow-red-600/20">
                   LIVE
                </div>
             </div>
           </div>
-
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
            <div className="w-px h-16 bg-gradient-to-b from-blue-500 to-transparent"></div>
         </div>
@@ -89,8 +86,8 @@ export default function Home() {
             <div className="w-10 h-px bg-blue-500"></div>
             <h2 className="text-xs font-black uppercase tracking-[0.5em]">Identity</h2>
           </div>
-          <div className="bg-zinc-900/30 border border-zinc-800/50 p-10 md:p-14 rounded-[50px] backdrop-blur-2xl">
-            <p className="text-2xl md:text-4xl leading-tight text-white font-light text-justify tracking-tighter">
+          <div className="bg-zinc-900/30 border border-zinc-800/50 p-10 md:p-14 rounded-[50px] backdrop-blur-2xl text-justify">
+            <p className="text-2xl md:text-4xl leading-tight text-white font-light tracking-tighter">
               "Seorang kreator yang bertumbuh di persimpangan kreativitas digital dan solusi teknologi. Fokus saya adalah membangun komunitas yang inklusif serta solusi web yang performan."
             </p>
           </div>
@@ -104,7 +101,6 @@ export default function Home() {
              <div className="w-10 h-px bg-blue-500"></div>
              <h2 className="text-xs font-black uppercase tracking-[0.5em]">The Journey</h2>
           </div>
-          
           <div className="relative border-l border-zinc-900 ml-4 space-y-16">
             {[
               { year: '2023', title: 'The Beginning', desc: 'Memulai langkah sebagai YouTuber Bardan1172 melalui konten Minecraft. Bergabung dengan komunitas Lottacraft.' },
@@ -112,7 +108,7 @@ export default function Home() {
               { year: '2025', title: 'Professional Expansion', desc: 'Menjadi CS di Heppycloud. Aktif di clan HCX7 Bloodstrike dan merombak sistem Discord.' },
               { year: '2026', current: true, title: 'Innovation Era', desc: 'Merintis Selene Shop dan mendalami Fullstack Web Development modern.' }
             ].map((item, index) => (
-              <div key={index} className="relative ml-10 group">
+              <div key={index} className="relative ml-10 group text-justify">
                 <div className={`absolute -left-[49px] top-1 h-4 w-4 rounded-full border-4 border-[#030303] transition-all duration-500 ${item.current ? 'bg-blue-600 scale-150 shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'bg-zinc-800'}`}></div>
                 <h3 className={`text-[10px] font-black uppercase tracking-widest ${item.current ? 'text-blue-500' : 'text-zinc-600'}`}>
                   {item.year} — {item.title}
@@ -141,7 +137,6 @@ export default function Home() {
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative">
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-[10px] font-black uppercase tracking-[0.8em] text-blue-600 mb-16">Get In Touch</h2>
-
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             <SocialCard href="https://discord.gg/invite-code" title="Discord" subtitle="Bocah Ronda" color="hover:border-indigo-600" />
             <SocialCard href="https://github.com/Bardan1172" title="Github" subtitle="Repositories" color="hover:border-white" />
@@ -150,7 +145,6 @@ export default function Home() {
             <SocialCard href="https://trakteer.id/bardan1172/tip" title="Trakteer" subtitle="Support Me" color="hover:border-yellow-600" />
             <SocialCard href="#" title="Selene Shop" subtitle="Coming Soon" color="hover:border-cyan-600" />
           </div>
-          
           <footer className="mt-32">
             <p className="text-[9px] uppercase tracking-[0.8em] text-zinc-800 font-black">
               © {new Date().getFullYear()} BARDAN1172
@@ -158,7 +152,6 @@ export default function Home() {
           </footer>
         </div>
       </section>
-
     </main>
   );
 }
