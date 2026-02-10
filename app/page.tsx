@@ -73,7 +73,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: MY PLAYLIST - FIXED VERSION */}
+      {/* SECTION 4: MY PLAYLIST */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
         <div className="max-w-2xl w-full">
           <div className="flex items-center gap-3 mb-8 text-[#1DB954]">
@@ -82,6 +82,7 @@ export default function Home() {
           </div>
           <div className="w-full rounded-[20px] overflow-hidden shadow-2xl border border-zinc-800 bg-black">
             <iframe 
+              style={{ borderRadius: "12px" }} 
               src="https://open.spotify.com/embed/playlist/64qOqN6NshD8U7iOfi1vGk?utm_source=generator&theme=0" 
               width="100%" 
               height="352" 
@@ -94,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: CONNECT */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative text-center">
+      <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative">
         <div className="max-w-4xl w-full">
           <div className="flex items-center justify-center gap-3 mb-12 text-blue-500">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
@@ -108,7 +109,7 @@ export default function Home() {
             <SocialCard href="https://trakteer.id/bardan1172/tip" title="Trakteer" subtitle="Support Me" color="hover:border-yellow-500" />
             <SocialCard href="#" title="Selene Shop" subtitle="Coming Soon" color="hover:border-cyan-500" />
           </div>
-          <footer className="mt-20">
+          <footer className="mt-20 text-center">
             <p className="text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold">© {new Date().getFullYear()} BARDAN × NEXTJS</p>
           </footer>
         </div>
