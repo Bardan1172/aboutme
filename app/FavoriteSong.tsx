@@ -12,7 +12,7 @@ export default function FavoriteSong() {
       <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-green-500/10 border border-zinc-800 bg-zinc-900/50">
         <iframe
           title="Favorite Song"
-          src="https://open.spotify.com/embed/track/3T6v9C6u8SshS93OC736Ab?utm_source=generator&theme=0"
+          src="https://open.spotify.com/embed/track/5WOSNVChcadlsCRiqXE45K?utm_source=generator7"
           width="100%"
           height="352"
           frameBorder="0"
