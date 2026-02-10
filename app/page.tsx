@@ -45,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: JEJAK PERJALANAN */}
+      {/* SECTION 3: JEJAK PERJALANAN (UPDATED 2026) */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 bg-white dark:bg-zinc-950">
         <div className="max-w-3xl w-full">
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-4">
@@ -54,27 +54,30 @@ export default function Home() {
           </h2>
           
           <div className="relative border-l-2 border-zinc-200 dark:border-zinc-800 ml-4">
+            {/* 2023-2024 */}
+            <div className="mb-10 ml-6">
+              <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full bg-zinc-400"></span>
+              <h3 className="text-xl font-bold italic text-zinc-500">2023 - 2024</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 mt-2">
+                Fase awal eksplorasi di YouTube dan Instagram. Mulai membangun fondasi di GitHub dan mempelajari dasar-dasar pengembangan web.
+              </p>
+            </div>
+
+            {/* 2025 */}
             <div className="mb-10 ml-6">
               <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.5)]"></span>
-              <h3 className="text-xl font-bold">2023 - Awal Eksplorasi</h3>
+              <h3 className="text-xl font-bold text-blue-600">2025</h3>
               <p className="text-zinc-500 dark:text-zinc-400 mt-2">
-                Memulai perjalanan di YouTube dan Instagram. Fokus pada pembuatan konten kreatif dan mulai belajar dasar-dasar coding.
+                Tahun ekspansi besar ke TikTok. Peresmian komunitas <strong>Bocah Ronda</strong> di Discord dan penguatan personal branding di seluruh kanal sosial media.
               </p>
             </div>
 
-            <div className="mb-10 ml-6">
-              <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full bg-purple-500"></span>
-              <h3 className="text-xl font-bold">2024 - Memperluas Jangkauan</h3>
-              <p className="text-zinc-500 dark:text-zinc-400 mt-2">
-                Mulai aktif di TikTok dan GitHub. Membangun project-project kecil dan memperdalam Frontend Development.
-              </p>
-            </div>
-
+            {/* 2026 */}
             <div className="ml-6">
-              <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full bg-green-500 animate-pulse"></span>
-              <h3 className="text-xl font-bold text-green-600 dark:text-green-400">2025 s/d Sekarang</h3>
-              <p className="text-zinc-500 dark:text-zinc-400 mt-2">
-                Membangun ekosistem <strong>Bocah Ronda</strong> di Discord dan terus mengembangkan skill Next.js.
+              <span className="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+              <h3 className="text-xl font-bold text-green-600 dark:text-green-400">2026 (Sekarang)</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 mt-2 font-medium">
+                Berfokus pada skalabilitas komunitas dan integrasi teknologi AI dalam konten kreatif. Terus aktif mengembangkan project open-source dan memperluas jaringan kolaborasi.
               </p>
             </div>
           </div>
