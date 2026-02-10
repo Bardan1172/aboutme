@@ -8,8 +8,9 @@ export default function Home() {
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 text-center">
         <div className="relative w-48 h-48 mb-8 group">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+          {/* Path diubah sesuai lokasi file kamu */}
           <img 
-            src="/foto-profil.jpg" 
+            src="/foto/foto-profile.jpg" 
             alt="Bardan" 
             className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-zinc-800 shadow-2xl"
           />
@@ -46,7 +47,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: SOCIAL MEDIA (LINKTREE STYLE) */}
+      {/* SECTION 3: SOCIAL MEDIA */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 bg-white dark:bg-zinc-950">
         <h2 className="text-3xl font-bold mb-10">Connect With Me</h2>
         
@@ -67,7 +68,7 @@ export default function Home() {
 
           {/* GitHub */}
           <a href="https://github.com/Bardan1172" target="_blank" rel="noopener noreferrer"
-            className="p-5 bg-zinc-900 text-white rounded-2xl hover:scale-[1.02] transition-all flex flex-col justify-center">
+            className="p-5 bg-zinc-900 text-white rounded-2xl hover:scale-[1.02] transition-all flex flex-col justify-center border border-zinc-800">
             <h3 className="text-xl font-bold">GitHub</h3>
             <p className="text-sm opacity-70">Bardan1172</p>
           </a>
@@ -86,11 +87,11 @@ export default function Home() {
             <p className="text-sm opacity-90">Subscribe</p>
           </a>
 
-          {/* Email */}
-          <a href="mailto:kontak@bardan.com" 
-            className="p-5 bg-blue-600 text-white rounded-2xl hover:scale-[1.02] transition-all">
-            <h3 className="text-xl font-bold">Email</h3>
-            <p className="text-sm opacity-90">Hire / Collab</p>
+          {/* Discord - Bocah Ronda */}
+          <a href="https://discord.gg/invite-code-kamu" target="_blank" rel="noopener noreferrer" 
+            className="p-5 bg-[#5865F2] text-white rounded-2xl hover:scale-[1.02] transition-all shadow-lg shadow-indigo-500/20">
+            <h3 className="text-xl font-bold">Discord</h3>
+            <p className="text-sm opacity-90 font-medium italic">Bocah Ronda</p>
           </a>
         </div>
 
