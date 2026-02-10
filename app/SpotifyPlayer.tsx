@@ -6,7 +6,7 @@ export default function SpotifyPlayer() {
       <iframe 
         title="Spotify Playlist"
         style={{ borderRadius: "12px" }} 
-        // Link resmi menggunakan HTTPS dan format embed agar tidak 404
+        // Gunakan link HTTPS lengkap di bawah ini agar error 404 hilang
         src="https://open.spotify.com/embed/playlist/4LUU5zBQOAOlstXPU0DmLY?utm_source=generator&theme=0" 
         width="100%" 
         height="352" 
