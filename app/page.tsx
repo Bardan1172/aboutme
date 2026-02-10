@@ -80,12 +80,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: SOUNDTRACK (SPOTIFY) */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative bg-[#050505]">
-        <div className="max-w-2xl w-full">
+      <section className="snap-start h-screen flex flex-col items-center justify-center p-4 md:p-8 relative bg-[#050505]">
+        {/* max-w-6xl agar 2 player muat berdampingan */}
+        <div className="max-w-6xl w-full">
           <div className="flex items-center gap-3 mb-8 text-[#1DB954] justify-center">
              <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
           </div>
-          {/* Memanggil file SpotifyPlayer.tsx */}
           <SpotifyPlayer />
         </div>
       </section>
