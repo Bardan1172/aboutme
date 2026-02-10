@@ -12,7 +12,7 @@ export default function SpotifyPlayer() {
       <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-zinc-800 bg-zinc-900/50">
         <iframe
           title="Nothing Song Playlist"
-          src="spotify.com/33"
+          src="https://open.spotify.com/embed/track/3S897XpYv6pXq6GInuAAnK?utm_source=generator&theme=02"
           width="100%"
           height="352"
           frameBorder="0"
