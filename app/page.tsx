@@ -30,12 +30,12 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: IDENTITY */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative text-center">
+      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
         <div className="max-w-2xl w-full">
-          <div className="flex items-center justify-center gap-3 mb-6 text-blue-500">
+          <div className="flex items-center gap-3 mb-6 text-blue-500 justify-center">
             <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Identity</h2>
           </div>
-          <div className="bg-zinc-900/40 border border-zinc-800/50 p-8 rounded-3xl backdrop-blur-sm">
+          <div className="bg-zinc-900/40 border border-zinc-800/50 p-8 rounded-3xl backdrop-blur-sm text-center">
             <p className="text-lg md:text-xl leading-relaxed text-zinc-300 italic font-light">
               "Seorang kreator yang bertumbuh di persimpangan kreativitas digital dan solusi teknologi."
             </p>
@@ -51,36 +51,40 @@ export default function Home() {
           </div>
           <div className="relative border-l border-zinc-800 ml-4 space-y-12">
             {[
-              { year: '2023', title: 'The Creative Spark', desc: 'YouTube Bardan172 & Lottacraft.' },
-              { year: '2024', title: 'Building Foundations', desc: 'BOCAH RONDA & Terrabear.' },
-              { year: '2025', title: 'Professional Step', desc: 'CS Heppycloud & HCX7 Bloodstrike.' },
-              { year: '2026', current: true, title: 'Innovation Era', desc: 'Selene Shop & Web Development.' }
+              { year: '2023', title: 'Creative Spark', desc: 'YouTube Bardan172 & Lottacraft.' },
+              { year: '2024', title: 'Building Roots', desc: 'BOCAH RONDA & Terrabear.' },
+              { year: '2025', title: 'Professional', desc: 'CS Heppycloud & HCX7 Bloodstrike.' },
+              { year: '2026', current: true, title: 'Innovation', desc: 'Selene Shop & Web Dev.' }
             ].map((item, index) => (
               <div key={index} className="relative ml-8 group">
-                <div className={`absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-[#050505] ${item.current ? 'bg-green-500' : 'bg-blue-600'}`}></div>
+                <div className={`absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-[#050505] ${item.current ? 'bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.4)]' : 'bg-blue-600'}`}></div>
                 <h3 className={`text-xs font-bold uppercase ${item.current ? 'text-green-500' : 'text-zinc-500'}`}>{item.year} — {item.title}</h3>
-                <p className="mt-2 text-zinc-400 text-sm">{item.desc}</p>
+                <p className="mt-1 text-zinc-400 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: MY PLAYLIST - THE 100% FIX */}
+      {/* SECTION 4: MY PLAYLIST (PAKAI KODE KAMU) */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
         <div className="max-w-2xl w-full">
           <div className="flex items-center gap-3 mb-8 text-[#1DB954] justify-center">
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.49 17.306c-.215.353-.674.463-1.023.248-2.824-1.725-6.377-2.112-10.565-1.157-.4.093-.8-.16-.893-.56-.093-.4.16-.8.56-.893 4.582-1.047 8.497-.604 11.673 1.34.35.213.46.673.248 1.022zm1.465-3.267c-.27.44-.844.578-1.284.308-3.232-1.986-8.16-2.563-11.982-1.403-.49.15-1.01-.132-1.16-.623-.15-.49.133-1.01.624-1.16 4.364-1.324 9.79-.675 13.513 1.61.44.27.578.844.308 1.284zm.126-3.41c-3.874-2.3-10.274-2.512-13.99-1.385-.595.18-1.222-.164-1.402-.76-.18-.595.164-1.222.76-1.402 4.266-1.296 11.332-1.037 15.794 1.612.535.317.71 1.006.393 1.54-.316.536-1.005.71-1.54.394z"/></svg>
+             <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
           </div>
-          <div className="w-full rounded-[12px] overflow-hidden shadow-2xl bg-[#282828]">
+          
+          <div className="w-full shadow-2xl">
+            {/* INI KODE KAMU YANG SUDAH DISESUAIKAN UNTUK NEXT.JS */}
             <iframe 
+              style={{ borderRadius: "12px" }} 
               src="https://open.spotify.com/embed/playlist/64qOqN6NshD8U7iOfi1vGk?utm_source=generator&theme=0" 
               width="100%" 
-              height="380" 
+              height="352" 
               frameBorder="0" 
+              allowFullScreen={true} 
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
               loading="lazy"
-              style={{ minHeight: '380px' }}
             ></iframe>
           </div>
         </div>
