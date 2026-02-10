@@ -14,10 +14,10 @@ export default function SpotifyPlayer() {
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">My Playlist</span>
           </div>
           <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/5 border border-zinc-800 bg-zinc-900/50">
-            {/* Pastikan menggunakan HTTPS dan link embed resmi Spotify agar gambar muncul */}
+            {/* Menggunakan link embed resmi Spotify */}
             <iframe
               title="Spotify Playlist"
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1E37jO8SiD7G6B?utm_source=generator&theme=0"
+              src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUf69pvv2U?utm_source=generator&theme=0"
               width="100%"
               height="352"
               frameBorder="0"
@@ -36,10 +36,10 @@ export default function SpotifyPlayer() {
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Favorite Song</span>
           </div>
           <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl shadow-green-500/5 border border-zinc-800 bg-zinc-900/50">
-            {/* Link contoh lagu Sheila On 7 - Dan */}
+            {/* Link resmi untuk Sheila On 7 - Dan */}
             <iframe
               title="Favorite Song"
-              src="https://open.spotify.com/embed/track/3S897XpYv6pXq6GInuAAnK?utm_source=generator&theme=0"
+              src="https://open.spotify.com/embed/track/4XfA67x8W31yV2D87k2N7z?utm_source=generator&theme=0"
               width="100%"
               height="352"
               frameBorder="0"
