@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import SpotifyPlayer from './SpotifyPlayer'; 
 
 export default function Home() {
   return (
@@ -78,7 +79,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 4: SOCIALS */}
+      {/* SECTION 4: SOUNDTRACK (SPOTIFY) */}
+      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative bg-[#050505]">
+        <div className="max-w-2xl w-full">
+          <div className="flex items-center gap-3 mb-8 text-[#1DB954] justify-center">
+             <h2 className="text-sm font-bold uppercase tracking-[0.3em]">Soundtrack</h2>
+          </div>
+          {/* Memanggil file SpotifyPlayer.tsx */}
+          <SpotifyPlayer />
+        </div>
+      </section>
+
+      {/* SECTION 5: CONNECT */}
       <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative">
         <div className="max-w-4xl w-full">
           <div className="flex items-center justify-center gap-3 mb-12 text-blue-500">
