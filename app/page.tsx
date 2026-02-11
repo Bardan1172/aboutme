@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import FavoriteSong from './FavoriteSong'; 
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -50,29 +51,38 @@ export default function Home() {
 
           {/* Sisi Kanan: Live Video Profile */}
           <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] flex-shrink-0 order-1 md:order-2 group">
-            <div className="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000"></div>
-            
-            <div className="relative w-full h-full rounded-full border-[1px] border-zinc-800 p-4 md:p-6 bg-zinc-900/20 backdrop-blur-3xl">
-               <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl bg-zinc-950">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2000ms]"
-                  >
-                    {/* Path disesuaikan dengan folder public kamu */}
-                    <source src="/foto/live.mp4" type="video/mp4" />
-                    <img src="/foto/foto-profile.jpg" alt="fallback" />
-                  </video>
-               </div>
-               
-               <div className="absolute top-8 right-8 bg-red-600 text-white text-[8px] font-black px-3 py-1 rounded-full tracking-[0.2em] animate-pulse shadow-lg shadow-red-600/20">
-                  LIVE
-               </div>
-            </div>
-          </div>
-        </div>
+  {/* Efek Glow di Belakang */}
+  <motion.div 
+    initial={{ opacity: 0.5, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    className="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000"
+  />
+
+  <div className="relative w-full h-full rounded-full border-[1px] border-zinc-800 p-4 md:p-6 bg-zinc-900/20 backdrop-blur-3xl">
+    <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl bg-zinc-950">
+      
+      {/* Ganti ke motion.video untuk kontrol animasi */}
+      <motion.video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        initial={{ scale: 1.05, opacity: 0 }}
+        animate={{ opacity: 1 }}
+        whileHover={{ scale: 1.15 }} // Efek zoom saat hover lebih smooth
+        transition={{ 
+          opacity: { duration: 1 },
+          scale: { duration: 2, ease: "easeOut" } 
+        }}
+        className="w-full h-full object-cover"
+      >
+        <source src="/foto/live.mp4" type="video/mp4" />
+        <img src="/foto/foto-profile.jpg" alt="fallback" />
+      </motion.video>
+
+    </div>
+  </div>
+</div>
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
            <div className="w-px h-16 bg-gradient-to-b from-blue-500 to-transparent"></div>
