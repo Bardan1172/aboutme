@@ -5,18 +5,19 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth bg-[#050505] text-zinc-300 selection:bg-blue-500/30">
+    /* Menghapus snap-y snap-mandatory dan overflow-y-scroll h-screen */
+    /* Mengganti h-screen menjadi min-h-screen agar konten tidak terpotong */
+    <main className="min-h-screen bg-[#050505] text-zinc-300 selection:bg-blue-500/30 overflow-x-hidden">
       
       {/* SECTION 1: HERO */}
-      <section className="snap-start h-screen flex flex-col md:flex-row items-center justify-center p-6 md:p-24 relative overflow-hidden">
+      {/* Mengubah h-screen menjadi min-h-screen atau py-24 agar mobile-friendly */}
+      <section className="min-h-screen flex flex-col md:flex-row items-center justify-center p-6 md:p-24 relative overflow-hidden">
         
         {/* Background Ambient Light */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-        {/* Content Container */}
         <div className="relative z-10 w-full max-w-[1200px] flex flex-col md:flex-row items-center gap-16 md:gap-24">
           
-          {/* Sisi Kiri: Teks & Info */}
           <div className="flex-1 text-center md:text-left space-y-8 order-2 md:order-1">
             <div className="flex gap-3 justify-center md:justify-start items-center">
                <div className="w-12 h-[2px] bg-blue-500"></div>
@@ -49,7 +50,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sisi Kanan: Live Profile (GIF) */}
           <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] flex-shrink-0 order-1 md:order-2 group">
             <motion.div 
               initial={{ opacity: 0.5, scale: 0.8 }}
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: IDENTITY */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 relative">
+      <section className="min-h-[60vh] flex flex-col items-center justify-center p-8 md:py-32 relative">
         <div className="max-w-2xl w-full">
           <div className="flex items-center gap-3 mb-8 text-blue-500">
             <div className="w-10 h-px bg-blue-500"></div>
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: JOURNEY */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-8 bg-[#030303] overflow-y-auto">
+      <section className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#030303]">
         <div className="max-w-3xl w-full py-20">
           <div className="flex items-center gap-3 mb-16 text-blue-500">
              <div className="w-10 h-px bg-blue-500"></div>
@@ -106,7 +106,7 @@ export default function Home() {
             {[
               { year: '2023', title: 'The Beginning', desc: 'Memulai langkah sebagai YouTuber Bardan1172 melalui konten Minecraft. Bergabung dengan komunitas Lottacraft.' },
               { year: '2024', title: 'Building Roots', desc: 'Mendirikan komunitas BOCAH RONDA. Memperluas koneksi dengan bergabung ke Terrabear.' },
-              { year: '2025', title: 'Professional Expansion', desc: 'Menjadi CS di Heppycloud. Aktif di clan HCX7 Bloodstrike dan merombak sistem Discord.' },
+              { year: '2025', title: 'Professional Expansion', desc: 'Menjadi CS di Heppycloud. Aktif di clan HCX7 Bloodstrike dan merapikan Discord Bocah Ronda.' },
               { year: '2026', current: true, title: 'Innovation Era', desc: 'Merintis Selene Shop dan mendalami Fullstack Web Development modern.' }
             ].map((item, index) => (
               <div key={index} className="relative ml-10 group text-justify">
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: SOUNDTRACK */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-4 relative">
+      <section className="min-h-[80vh] flex flex-col items-center justify-center p-4 py-32 relative">
         <div className="w-full flex flex-col items-center">
           <div className="flex items-center gap-4 mb-20 text-zinc-700">
               <div className="w-16 h-[1px] bg-zinc-900"></div>
@@ -135,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: CONNECT */}
-      <section className="snap-start h-screen flex flex-col items-center justify-center p-6 relative">
+      <section className="min-h-screen flex flex-col items-center justify-center p-6 py-32 relative">
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-[10px] font-black uppercase tracking-[0.8em] text-blue-600 mb-16">Get In Touch</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
