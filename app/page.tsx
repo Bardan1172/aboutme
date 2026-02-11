@@ -49,39 +49,37 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sisi Kanan: Live Video Profile */}
+          {/* Sisi Kanan: Live Profile (GIF) */}
           <div className="relative w-72 h-72 md:w-[450px] md:h-[450px] flex-shrink-0 order-1 md:order-2 group">
-  <motion.div 
-    initial={{ opacity: 0.5, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    className="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000"
-  />
+            <motion.div 
+              initial={{ opacity: 0.5, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000"
+            />
 
-  <div className="relative w-full h-full rounded-full border-[1px] border-zinc-800 p-4 md:p-6 bg-zinc-900/20 backdrop-blur-3xl">
-    <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl bg-zinc-950">
-      
-      {/* Gunakan motion.img untuk file GIF */}
-      <motion.img 
-        src="/foto/live.gif" // Path ke GIF kamu
-        alt="Live Profile"
-        initial={{ scale: 1.05, opacity: 0 }}
-        animate={{ opacity: 1 }}
-        whileHover={{ scale: 1.15 }}
-        transition={{ 
-          opacity: { duration: 1 },
-          scale: { duration: 2, ease: "easeOut" } 
-        }}
-        className="w-full h-full object-cover"
-        // Fallback jika GIF gagal load
-        onError={(e) => {
-          e.currentTarget.src = "/foto/foto-profile.jpg";
-        }}
-      />
+            <div className="relative w-full h-full rounded-full border-[1px] border-zinc-800 p-4 md:p-6 bg-zinc-900/20 backdrop-blur-3xl">
+              <div className="w-full h-full rounded-full overflow-hidden border border-zinc-700/50 shadow-2xl bg-zinc-950">
+                <motion.img 
+                  src="/foto/live.gif" 
+                  alt="Live Profile"
+                  initial={{ scale: 1.05, opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ 
+                    opacity: { duration: 1 },
+                    scale: { duration: 2, ease: "easeOut" } 
+                  }}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = "/foto/foto-profile.jpg";
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-    </div>
-  </div>
-</div>
-
+        {/* Scroll Indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
            <div className="w-px h-16 bg-gradient-to-b from-blue-500 to-transparent"></div>
         </div>
