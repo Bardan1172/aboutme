@@ -78,11 +78,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
-           <div className="w-px h-16 bg-gradient-to-b from-blue-500 to-transparent"></div>
-        </div>
       </section>
 
       {/* SECTION 2: IDENTITY */}
