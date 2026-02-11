@@ -73,7 +73,7 @@ export default function Home() {
                   }}
                   className="w-full h-full object-cover"
                 >
-                  <source src="/foto/live.mp4" type="video/mp4" />
+                  <source src="/foto/live.gif" type="video/gif" />
                   <img src="/foto/foto-profile.jpg" alt="fallback" />
                 </motion.video>
               </div>
